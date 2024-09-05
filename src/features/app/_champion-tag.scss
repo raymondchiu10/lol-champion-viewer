@@ -1,0 +1,29 @@
+.champion-tag {
+	display: flex;
+	gap: 0.25rem;
+	color: white;
+
+	.border {
+		border-radius: 0.5rem;
+		padding: 0.125rem 0.5rem;
+	}
+
+	&_assassin {
+		background: purple;
+	}
+	&_fighter {
+		background: brown;
+	}
+	&_mage {
+		background: blue;
+	}
+	&_marksman {
+		background: red;
+	}
+	&_support {
+		background: green;
+	}
+	&_tank {
+		background: orange;
+	}
+}

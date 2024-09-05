@@ -1,0 +1,24 @@
+.header {
+	position: sticky;
+	top: 0;
+	background-color: beige;
+	padding: 0 0 0.5rem 0;
+
+	&_container {
+		@extend .container;
+
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: start;
+		width: 100%;
+		padding: 0.5rem 0;
+
+		@include media-breakpoint-up(sm) {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: end;
+		}
+	}
+}

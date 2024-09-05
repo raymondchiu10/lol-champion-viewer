@@ -1,0 +1,18 @@
+.champion-card {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid black;
+	padding: 0.5rem;
+
+	&_header {
+		display: flex;
+	}
+
+	&_subheader {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
+		padding: 0.5rem 0.25rem;
+	}
+}
