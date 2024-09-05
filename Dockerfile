@@ -2,16 +2,16 @@
 FROM node:20.9.0-bullseye-slim AS development
 
 # Set the working directory inside the container
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copy dependency definitions
-COPY package*.json /usr/src/app
+COPY package*.json .
 
 # Install dependencies
 RUN npm ci --silent
 
 # Get all the code needed to run the app
-COPY . /usr/src/app
+COPY . .
 
 # Expose the port the app runs on
 EXPOSE 8080

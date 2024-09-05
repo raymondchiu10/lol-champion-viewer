@@ -1,3 +1,18 @@
 .app {
-	margin: auto;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	min-height: 90dvh;
+	max-height: 100%;
+
+	&_champ-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+
+		& > div {
+			flex: 30%;
+			width: 100%;
+		}
+	}
 }
