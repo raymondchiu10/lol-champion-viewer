@@ -1,56 +1,51 @@
-import { useQuery } from "@tanstack/react-query";
-import { getChampions } from "../../api/getChampions";
-import LOLDropdown from "../../utils/LOLDropdown";
-import { useState, version } from "react";
-import { Champion } from "../../api/types_champion";
-import getVersion from "../../api/getVersion";
+import { useChampions } from "./hooks/useChampions";
+import ChampionCard from "./ChampionCard";
+import { useContext } from "react";
+import { ChampionContext } from "../../utils/context/ChampionContext";
 
 function App() {
-	const [champion, setChampion] = useState<Champion | undefined>();
+	const context = useContext(ChampionContext);
 
-	const {
-		data: versionData,
-		isError: isVersionDataError,
-		error: versionDataError,
-		isLoading: isVersionDataLoading,
-	} = useQuery({
-		queryKey: [version],
-		queryFn: getVersion,
-	});
-
-	const {
-		data: championData,
-		isError: isChampionError,
-		error: championError,
-		isLoading: isChampionLoading,
-	} = useQuery({
-		queryKey: ["champions"],
-		queryFn: () => getChampions(versionData),
-	});
-
-	if (isChampionLoading || isVersionDataLoading) {
-		return <h1>is Loading...</h1>;
-	}
-
-	if (isVersionDataError || isChampionError) {
-		return (
-			<pre>
-				{versionDataError
-					? JSON.stringify(versionDataError)
-					: JSON.stringify(championError)}
-			</pre>
+	if (!context) {
+		throw new Error(
+			"ChampionConsumer must be used within a ChampionProvider",
 		);
 	}
 
-	if (championData) {
+	const { champion } = context;
+
+	const {
+		championsData,
+		isChampionsError,
+		championsError,
+		isChampionsLoading,
+	} = useChampions();
+
+	if (isChampionsLoading) {
+		return <h1>is Loading...</h1>;
+	}
+
+	if (isChampionsError) {
+		return <pre>{JSON.stringify(championsError)}</pre>;
+	}
+
+	if (championsData) {
 		return (
 			<section className="app">
-				<LOLDropdown
-					options={championData || []}
-					value={champion}
-					setValue={setChampion}
-				/>
-				{champion && <pre>{JSON.stringify(champion)}</pre>}
+				<div className="app_champ-list">
+					{champion ? (
+						<ChampionCard champion={champion} />
+					) : (
+						championsData.map((champ) => {
+							return (
+								<ChampionCard
+									key={champ.label}
+									champion={champ.value}
+								/>
+							);
+						})
+					)}
+				</div>
 			</section>
 		);
 	}

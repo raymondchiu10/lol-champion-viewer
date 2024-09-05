@@ -38,6 +38,10 @@ export interface ChampionImage {
 	h: number;
 }
 
+export type TChampionTag = Array<
+	"Assassin" | "Fighter" | "Mage" | "Marksman" | "Support" | "Tank"
+>;
+
 export interface Champion {
 	version: string;
 	id: string;
@@ -47,7 +51,7 @@ export interface Champion {
 	blurb: string;
 	info: ChampionInfo;
 	image: ChampionImage;
-	tags: string[];
+	tags: TChampionTag;
 	partype: string;
 	stats: ChampionStats;
 }

@@ -1,0 +1,11 @@
+.footer {
+	display: flex;
+	flex: 1;
+	background-color: beige;
+	position: sticky;
+	bottom: 0;
+	padding: 1rem;
+	& > p {
+		@extend .container;
+	}
+}
