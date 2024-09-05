@@ -11,8 +11,12 @@
 		gap: 1rem;
 
 		& > div {
-			flex: 30%;
+			flex: auto;
 			width: 100%;
+
+			@include media-breakpoint-up(md) {
+				flex: 20%;
+			}
 		}
 	}
 }
