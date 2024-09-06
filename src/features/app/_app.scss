@@ -9,10 +9,15 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 1rem;
+		padding: 0.75rem 0;
 
 		& > div {
-			flex: 30%;
+			flex: auto;
 			width: 100%;
+
+			@include media-breakpoint-up(md) {
+				flex: 20%;
+			}
 		}
 	}
 }

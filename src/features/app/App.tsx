@@ -12,7 +12,7 @@ function App() {
 		);
 	}
 
-	const { champion } = context;
+	const { champion, search } = context;
 
 	const {
 		championsData,
@@ -20,6 +20,7 @@ function App() {
 		championsError,
 		isChampionsLoading,
 	} = useChampions();
+
 
 	if (isChampionsLoading) {
 		return <h1>is Loading...</h1>;
@@ -30,20 +31,20 @@ function App() {
 	}
 
 	if (championsData) {
+
+		const filteredChampions = search !== ""
+		? championsData?.filter(champ =>
+			champ.value.name.toLowerCase().includes(search.toLowerCase())
+		  )
+		: championsData;
+
 		return (
 			<section className="app">
 				<div className="app_champ-list">
 					{champion ? (
 						<ChampionCard champion={champion} />
 					) : (
-						championsData.map((champ) => {
-							return (
-								<ChampionCard
-									key={champ.label}
-									champion={champ.value}
-								/>
-							);
-						})
+						filteredChampions.map(champ => <ChampionCard key={champ.label} champion={champ.value}/>)
 					)}
 				</div>
 			</section>

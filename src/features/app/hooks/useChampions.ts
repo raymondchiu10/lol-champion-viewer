@@ -15,6 +15,7 @@ export const useChampions = () => {
 		queryFn: () => getChampions(versionData),
 	});
 
+
 	return {
 		championsData,
 		isChampionsError,

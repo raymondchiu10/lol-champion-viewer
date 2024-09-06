@@ -16,6 +16,8 @@ export interface IDropdownOptions {
 interface IProps {
 	label?: string;
 	name?: string;
+	onFocus?: () => void;
+	onBlur?: () => void;
 	options: Array<IDropdownOptions>;
 	value: Champion | undefined;
 	setValue: Dispatch<SetStateAction<Champion | undefined>>;
@@ -25,6 +27,7 @@ const LOLDropdown = (props: IProps) => {
 	const [isFocused, setIsFocused] = useState<boolean>(false);
 
 	const selectRef = useRef<HTMLSelectElement>(null);
+
 	useEffect(() => {
 		const checkFocus = () => {
 			if (selectRef.current === document.activeElement) {
@@ -66,6 +69,8 @@ const LOLDropdown = (props: IProps) => {
 
 			<div className="lol-dropdown_wrapper">
 				<select
+					onFocus={props.onFocus}
+					onBlur={props.onBlur}
 					ref={selectRef}
 					id={props.name || "champions"}
 					onChange={inputOnChange}

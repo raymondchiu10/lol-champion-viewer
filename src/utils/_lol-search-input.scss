@@ -1,0 +1,16 @@
+.lol-search-input {
+	display: flex;
+	width: 100%;
+
+	&_container {
+		display: flex;
+		width: 100%;
+
+		& > input {
+			display: flex;
+			width: 100%;
+			padding: 0.25rem;
+			border-radius: 0.25rem;
+		}
+	}
+}
