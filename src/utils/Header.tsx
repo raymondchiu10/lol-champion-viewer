@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useChampions } from "../features/app/hooks/useChampions";
 import { ChampionContext } from "./context/ChampionContext";
-import LOLDropdown from "./LOLDropdown";
+import LOLSearchInput from "./LOLSearchInput";
 
 const Header = () => {
 	const {
@@ -19,7 +19,12 @@ const Header = () => {
 		);
 	}
 
-	const { champion, setChampion } = context;
+	const { search, setSearch } = context;
+
+
+	const searchOnFocus = () => {
+		setSearch("");
+	};
 
 	if (isChampionsLoading) {
 		return <h1>is Loading...</h1>;
@@ -28,6 +33,7 @@ const Header = () => {
 	if (isChampionsError) {
 		return <pre>{JSON.stringify(championsError)}</pre>;
 	}
+
 	if (championsData) {
 		return (
 			<header className="header">
@@ -35,16 +41,18 @@ const Header = () => {
 					<h1>LOL Champion Viewer</h1>
 
 					<div className="header_container_dropdown">
-						<LOLDropdown
-							value={champion}
-							setValue={setChampion}
-							options={championsData}
+						<LOLSearchInput
+							onFocus={searchOnFocus}
+							value={search}
+							setValue={setSearch}
 						/>
+
 					</div>
 				</div>
 			</header>
 		);
 	}
+	return;
 };
 
 export default Header;

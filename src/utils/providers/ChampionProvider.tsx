@@ -8,9 +8,10 @@ interface IProps {
 
 const ChampionProvider = (props: IProps) => {
 	const [champion, setChampion] = useState<Champion | undefined>(undefined);
+	const [search, setSearch] = useState<string>("");
 
 	return (
-		<ChampionContext.Provider value={{ champion, setChampion }}>
+		<ChampionContext.Provider value={{ champion, setChampion, search, setSearch }}>
 			{props.children}
 		</ChampionContext.Provider>
 	);
