@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import { useChampions } from "../features/app/hooks/useChampions";
 import { ChampionContext } from "./context/ChampionContext";
 import LOLSearchInput from "./LOLSearchInput";
+import { Link, useLocation } from "react-router-dom";
+import { useChampions } from "./hooks/useChampions";
 
 const Header = () => {
 	const {
@@ -10,6 +11,8 @@ const Header = () => {
 		championsError,
 		isChampionsLoading,
 	} = useChampions();
+
+	const { pathname } = useLocation();
 
 	const context = useContext(ChampionContext);
 
@@ -20,7 +23,6 @@ const Header = () => {
 	}
 
 	const { search, setSearch } = context;
-
 
 	const searchOnFocus = () => {
 		setSearch("");
@@ -38,16 +40,19 @@ const Header = () => {
 		return (
 			<header className="header">
 				<div className="header_container">
-					<h1>LOL Champion Viewer</h1>
+					<h1>
+						<Link to="/">LOL Champion Viewer</Link>
+					</h1>
 
-					<div className="header_container_dropdown">
-						<LOLSearchInput
-							onFocus={searchOnFocus}
-							value={search}
-							setValue={setSearch}
-						/>
-
-					</div>
+					{pathname === "/" && (
+						<div className="header_container_dropdown">
+							<LOLSearchInput
+								onFocus={searchOnFocus}
+								value={search}
+								setValue={setSearch}
+							/>
+						</div>
+					)}
 				</div>
 			</header>
 		);

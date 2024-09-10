@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { getChampions, getDetailedChampions } from "../../../api/getChampions";
 import { useVersion } from "./useVersion";
+import { getChampions, getDetailedChampions } from "../../api/getChampions";
 
 export const useChampions = () => {
 	const { versionData } = useVersion();
@@ -14,7 +14,6 @@ export const useChampions = () => {
 		queryKey: ["champions"],
 		queryFn: () => getChampions(versionData),
 	});
-
 
 	return {
 		championsData,

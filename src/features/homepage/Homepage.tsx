@@ -1,9 +1,9 @@
-import { useChampions } from "./hooks/useChampions";
 import ChampionCard from "./ChampionCard";
 import { useContext } from "react";
 import { ChampionContext } from "../../utils/context/ChampionContext";
+import { useChampions } from "../../utils/hooks/useChampions";
 
-function App() {
+const Homepage = () => {
 	const context = useContext(ChampionContext);
 
 	if (!context) {
@@ -21,7 +21,6 @@ function App() {
 		isChampionsLoading,
 	} = useChampions();
 
-
 	if (isChampionsLoading) {
 		return <h1>is Loading...</h1>;
 	}
@@ -31,25 +30,32 @@ function App() {
 	}
 
 	if (championsData) {
-
-		const filteredChampions = search !== ""
-		? championsData?.filter(champ =>
-			champ.value.name.toLowerCase().includes(search.toLowerCase())
-		  )
-		: championsData;
+		const filteredChampions =
+			search !== ""
+				? championsData?.filter((champ) =>
+						champ.value.name
+							.toLowerCase()
+							.includes(search.toLowerCase()),
+					)
+				: championsData;
 
 		return (
-			<section className="app">
-				<div className="app_champ-list">
+			<section className="homepage">
+				<div className="homepage_champ-list">
 					{champion ? (
 						<ChampionCard champion={champion} />
 					) : (
-						filteredChampions.map(champ => <ChampionCard key={champ.label} champion={champ.value}/>)
+						filteredChampions.map((champ) => (
+							<ChampionCard
+								key={champ.label}
+								champion={champ.value}
+							/>
+						))
 					)}
 				</div>
 			</section>
 		);
 	}
-}
+};
 
-export default App;
+export default Homepage;

@@ -1,20 +1,28 @@
-import { getChampionSquareAsset } from "../../api/getChampionSquareAsset";
+import { getChampionAsset } from "../../api/getChampionAsset";
+import { isDetailedChampionData } from "../../api/typeguards";
 import { Champion } from "../../api/types_champion";
+import { DetailedChampionData } from "../../api/types_champion-detailed";
 import ProfileIcon from "../../utils/ProfileIcon";
 import ChampionTag from "./ChampionTag";
+import { useNavigate } from "react-router-dom";
 
 interface IProps {
-	champion: Champion;
+	champion: Champion | DetailedChampionData;
 }
 
 const ChampionCard = (props: IProps) => {
 	const { champion } = props;
+	const navigate = useNavigate();
+
+	const linkHelper = () => {
+		navigate(`/champion/${champion.id}`);
+	};
 
 	return (
-		<div className="champion-card">
+		<div onClick={linkHelper} className="champion-card">
 			<header className="champion-card_header">
 				<ProfileIcon
-					src={getChampionSquareAsset(champion.image.full)}
+					src={getChampionAsset(champion.image.full)}
 					alt={champion.name}
 				/>
 
@@ -26,7 +34,7 @@ const ChampionCard = (props: IProps) => {
 					<ChampionTag tags={champion.tags} />
 				</div>
 			</header>
-			<aside>{champion.blurb}</aside>
+			<aside>{isDetailedChampionData(champion) ? champion.lore : champion.blurb}</aside>
 		</div>
 	);
 };
