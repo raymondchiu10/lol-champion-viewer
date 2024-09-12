@@ -2,14 +2,12 @@ import { useLocation } from "react-router-dom";
 import ChampionCard from "../homepage/ChampionCard";
 import { Champion } from "../../api/types_champion";
 import { useChampion } from "../../utils/hooks/useChampions";
-import { getChampionLoadingAsset } from "../../api/getChampionAsset";
+import LOLCarousel from "./LOLCarousel";
 
 const ChampionPage = () => {
 	const location = useLocation();
 	const { championData, isChampionError, championError, isChampionLoading } =
 		useChampion(location.pathname.replace("/champion/", ""));
-
-	const championSplash = getChampionLoadingAsset(championData?.id);
 
 	if (isChampionLoading) {
 		return <h1>is Loading...</h1>;
@@ -22,10 +20,20 @@ const ChampionPage = () => {
 	if (championData) {
 		return (
 			<section className="champion-page">
-				<img src={championSplash} alt="championSplash"/>
-
-				<ChampionCard champion={championData as unknown as Champion} />
-
+				<ChampionCard
+					champion={championData as unknown as Champion}
+					disabled={true}
+				/>
+				<LOLCarousel champion={championData.id} data={championData.skins}/>
+				{
+					<ul>
+						{Object.entries(championData).map(([key, value]) => (
+							<li key={key}>
+								<strong>{key}</strong>: {JSON.stringify(value)}
+							</li>
+						))}
+					</ul>
+				}
 			</section>
 		);
 	}

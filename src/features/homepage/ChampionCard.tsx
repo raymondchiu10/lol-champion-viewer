@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { getChampionAsset } from "../../api/getChampionAsset";
 import { isDetailedChampionData } from "../../api/typeguards";
 import { Champion } from "../../api/types_champion";
@@ -8,10 +9,10 @@ import { useNavigate } from "react-router-dom";
 
 interface IProps {
 	champion: Champion | DetailedChampionData;
+	disabled?: boolean;
 }
 
-const ChampionCard = (props: IProps) => {
-	const { champion } = props;
+const ChampionCard = ({champion, disabled = false}: IProps) => {
 	const navigate = useNavigate();
 
 	const linkHelper = () => {
@@ -19,7 +20,16 @@ const ChampionCard = (props: IProps) => {
 	};
 
 	return (
-		<div onClick={linkHelper} className="champion-card">
+		<div
+			onClick={
+				disabled ? undefined : linkHelper
+			}
+			className={clsx(
+				"champion-card", {
+					"champion-card_active": !disabled
+				}
+			)}
+		>
 			<header className="champion-card_header">
 				<ProfileIcon
 					src={getChampionAsset(champion.image.full)}

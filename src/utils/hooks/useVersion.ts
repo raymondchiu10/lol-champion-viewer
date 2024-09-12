@@ -10,6 +10,8 @@ export const useVersion = () => {
 	} = useQuery({
 		queryKey: ["version"],
 		queryFn: getVersion,
+		staleTime: 1000 * 60 * 60, // Example: data is considered fresh for 1 hour
+		gcTime: 1000 * 60 * 60 * 2, // Example: cache the data for 2 hours
 	});
 
 	return {

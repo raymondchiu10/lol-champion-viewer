@@ -1,0 +1,23 @@
+.lol-carousel {
+	display: flex;
+
+	.swiper-slide {
+		position: relative;
+
+		&_element {
+			position: relative;
+
+			& > h2 {
+				position: absolute;
+				bottom: 2rem;
+				right: 2rem;
+			}
+
+			& img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+			}
+		}
+	}
+}
