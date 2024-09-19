@@ -1,8 +1,4 @@
-import {
-	ChangeEvent,
-	Dispatch,
-	SetStateAction,
-} from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 interface IProps {
 	label?: string;
@@ -14,19 +10,18 @@ interface IProps {
 }
 
 const LOLSearchInput = (props: IProps) => {
-
 	const inputHelper = (e: ChangeEvent<HTMLInputElement>) => {
 		const tempVal = e.target.value;
 		props.setValue(tempVal);
-	}
+	};
 
 	return (
 		<div className="lol-search-input">
-			{props.label &&
+			{props.label && (
 				<label htmlFor={props.name || "champion search"}>
 					{props.label}
 				</label>
-			}
+			)}
 
 			<div className="lol-search-input_container">
 				<input

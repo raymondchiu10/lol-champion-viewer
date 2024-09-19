@@ -3,9 +3,9 @@
 	top: 0;
 	background-color: #111111;
 	padding: 0 0 0.5rem 0;
-	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
-	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 
 	&_container {
 		@extend .container;
@@ -22,6 +22,15 @@
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: end;
+		}
+
+		& a {
+			color: white;
+			text-decoration: none;
+
+			&:hover {
+				text-shadow: rgba(0, 94, 255, 1) 1px 0 10px;
+			}
 		}
 	}
 }
