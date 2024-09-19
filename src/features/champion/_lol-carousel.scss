@@ -1,5 +1,7 @@
 .lol-carousel {
 	display: flex;
+	border-radius: 1rem;
+	overflow: hidden;
 
 	.swiper-slide {
 		position: relative;

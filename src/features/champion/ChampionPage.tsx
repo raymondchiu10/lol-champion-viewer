@@ -3,6 +3,7 @@ import ChampionCard from "../homepage/ChampionCard";
 import { Champion } from "../../api/types_champion";
 import { useChampion } from "../../utils/hooks/useChampions";
 import LOLCarousel from "./LOLCarousel";
+import ChampionDetailCard from "../../utils/championDetailCard/ChampionDetailCard";
 
 const ChampionPage = () => {
 	const location = useLocation();
@@ -24,16 +25,11 @@ const ChampionPage = () => {
 					champion={championData as unknown as Champion}
 					disabled={true}
 				/>
-				<LOLCarousel champion={championData.id} data={championData.skins}/>
-				{
-					<ul>
-						{Object.entries(championData).map(([key, value]) => (
-							<li key={key}>
-								<strong>{key}</strong>: {JSON.stringify(value)}
-							</li>
-						))}
-					</ul>
-				}
+				<LOLCarousel
+					champion={championData.id}
+					data={championData.skins}
+				/>
+				<ChampionDetailCard championData={championData} />
 			</section>
 		);
 	}

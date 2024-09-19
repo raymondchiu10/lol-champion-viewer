@@ -1,7 +1,7 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useVersion } from "./useVersion";
 import { getChampions, getDetailedChampions } from "../../api/getChampions";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 
 export const useChampions = () => {
 	const { versionData } = useVersion();
@@ -22,7 +22,6 @@ export const useChampions = () => {
 		enabled: !!versionData,
 		staleTime: 1000 * 60 * 10,
 		gcTime: 1000 * 60 * 30,
-
 	});
 
 	return {

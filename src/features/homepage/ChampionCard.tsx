@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import clsx from "clsx";
 import { getChampionAsset } from "../../api/getChampionAsset";
 import { isDetailedChampionData } from "../../api/typeguards";
 import { Champion } from "../../api/types_champion";
@@ -12,7 +12,7 @@ interface IProps {
 	disabled?: boolean;
 }
 
-const ChampionCard = ({champion, disabled = false}: IProps) => {
+const ChampionCard = ({ champion, disabled = false }: IProps) => {
 	const navigate = useNavigate();
 
 	const linkHelper = () => {
@@ -21,14 +21,10 @@ const ChampionCard = ({champion, disabled = false}: IProps) => {
 
 	return (
 		<div
-			onClick={
-				disabled ? undefined : linkHelper
-			}
-			className={clsx(
-				"champion-card", {
-					"champion-card_active": !disabled
-				}
-			)}
+			onClick={disabled ? undefined : linkHelper}
+			className={clsx("champion-card", {
+				"champion-card_active": !disabled,
+			})}
 		>
 			<header className="champion-card_header">
 				<ProfileIcon
@@ -44,7 +40,11 @@ const ChampionCard = ({champion, disabled = false}: IProps) => {
 					<ChampionTag tags={champion.tags} />
 				</div>
 			</header>
-			<aside>{isDetailedChampionData(champion) ? champion.lore : champion.blurb}</aside>
+			<aside>
+				{isDetailedChampionData(champion)
+					? champion.lore
+					: champion.blurb}
+			</aside>
 		</div>
 	);
 };

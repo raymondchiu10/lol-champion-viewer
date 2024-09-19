@@ -9,8 +9,8 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			// Ensure node_modules are properly resolved
-			'@': '/src',
-		  },
+			"@": "/src",
+		},
 	},
 	server: {
 		host: true,

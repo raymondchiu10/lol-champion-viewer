@@ -1,0 +1,22 @@
+.champion-spell-component {
+	display: flex;
+	flex-direction: column;
+
+	&_spells {
+		display: flex;
+		gap: 1rem;
+		padding: 1rem 0;
+
+		& > img {
+			border-radius: 0.5rem;
+			overflow: hidden;
+
+			&:hover	{
+				cursor: pointer;
+				-webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+				-moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+				box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+			}
+		}
+	}
+}
