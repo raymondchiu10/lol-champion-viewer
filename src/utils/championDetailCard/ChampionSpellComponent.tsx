@@ -4,18 +4,19 @@ import { ChampionSpell } from "../../api/types_champion-detailed";
 import { useVersion } from "../hooks/useVersion";
 import ChampionSpellItem from "./ChampionSpellItem";
 
-
 interface IProps {
 	spells: Array<ChampionSpell>;
 }
 
 const ChampionSpellComponent = (props: IProps) => {
-	const [selectedSpell, setSelectedSpell] = useState<ChampionSpell | undefined>(undefined);
-	const {versionData} = useVersion();
+	const [selectedSpell, setSelectedSpell] = useState<
+		ChampionSpell | undefined
+	>(undefined);
+	const { versionData } = useVersion();
 
 	const onPressHelper = (selected: ChampionSpell) => () => {
 		setSelectedSpell(selected);
-	}
+	};
 
 	return (
 		<div className="champion-spell-component">
@@ -23,7 +24,7 @@ const ChampionSpellComponent = (props: IProps) => {
 				<label>Skills:</label>
 			</h2>
 			<div className="champion-spell-component_spells">
-				{props.spells.map((item) =>
+				{props.spells.map((item) => (
 					<img
 						key={item.id}
 						src={getSpellAsset(item.image.full, versionData)}
@@ -31,11 +32,11 @@ const ChampionSpellComponent = (props: IProps) => {
 						draggable={false}
 						onClick={onPressHelper(item)}
 					/>
-				)}
+				))}
 			</div>
-			{selectedSpell && <ChampionSpellItem spell={selectedSpell}/>}
+			{selectedSpell && <ChampionSpellItem spell={selectedSpell} />}
 		</div>
 	);
-}
+};
 
 export default ChampionSpellComponent;

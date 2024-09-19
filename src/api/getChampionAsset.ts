@@ -17,11 +17,11 @@ export const getPassiveAsset = (
 	version: string = "14.18.1",
 ): string => {
 	return `https://ddragon.leagueoflegends.com/cdn/${version}/img/passive/${full}`;
-}
+};
 
 export const getSpellAsset = (
 	full: string,
 	version: string = "14.18.1",
 ): string => {
 	return `https://ddragon.leagueoflegends.com/cdn/${version}/img/spell/${full}`;
-}
+};

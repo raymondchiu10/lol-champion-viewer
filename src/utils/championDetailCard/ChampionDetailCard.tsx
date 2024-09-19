@@ -12,7 +12,6 @@ const ChampionDetailCard = (props: IProps) => {
 
 	return (
 		<section className="champion-detail-card">
-
 			<div className="champion-detail-card_passive">
 				<h2>
 					<label>Passive:</label>
@@ -23,16 +22,22 @@ const ChampionDetailCard = (props: IProps) => {
 				</h3>
 
 				<div className="champion-detail-card_passive_img">
-					<img src={getPassiveAsset(championData.passive.image.full)} alt={championData.passive.name}/>
+					<img
+						src={getPassiveAsset(championData.passive.image.full)}
+						alt={championData.passive.name}
+					/>
 				</div>
-				<p dangerouslySetInnerHTML={{__html: championData.passive.description}}/>
+				<p
+					dangerouslySetInnerHTML={{
+						__html: championData.passive.description,
+					}}
+				/>
 			</div>
 
 			<div>
 				<h2>
 					<label>Resource Type: {championData.partype}</label>
 				</h2>
-
 			</div>
 
 			<ChampionSpellComponent spells={championData.spells} />
@@ -66,7 +71,6 @@ const ChampionDetailCard = (props: IProps) => {
 					</ul>
 				</div>
 			</details>
-
 
 			{/* {Object.entries(championData).map(([key, value]) => {
 				return (
