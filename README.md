@@ -1,6 +1,8 @@
-# React + TypeScript + Vite Template
+# LOL Champion Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project shows off League of Legends champions as well as displays interesting information about each champion. The project can be viewed [Here](https://lol-champion-viewer.netlify.app/).
+
+This project is built on React working in Vite with HMR and some ESLint rules.
 
 Currently using plugin:
 
