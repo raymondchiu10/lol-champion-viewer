@@ -16,7 +16,7 @@ createRoot(document.getElementById("root")!).render(
 				<RouterProvider router={router} />
 			</ChampionProvider>
 			{/* Remember to comment out the dev tools for production */}
-			<ReactQueryDevtools />
+			{/* <ReactQueryDevtools /> */}
 		</QueryClientProvider>
 	</StrictMode>,
 );
