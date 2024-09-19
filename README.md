@@ -1,4 +1,4 @@
-# React + TypeScript + Vite Template
+# LOL Champion Viewer
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -9,6 +9,8 @@ Currently using plugin:
 -   This project also uses [SCSS](https://sass-lang.com/).
 
 -   For routing, the project uses [react-router-dom](https://reactrouter.com/en/main)
+
+-	Site can be viewed [Here](https://lol-champion-viewer.netlify.app/)
 
 ## Running the project
 
