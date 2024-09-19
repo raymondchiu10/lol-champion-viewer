@@ -1,12 +1,11 @@
 import { TChampionTag } from "../../api/types_champion";
 
 export interface IProps {
-	tags: TChampionTag;
+	tags: Array<TChampionTag>;
 }
 
 const ChampionTag = (props: IProps) => {
 	const { tags } = props;
-
 	return (
 		<aside className="champion-tag">
 			{tags?.map((item) => {

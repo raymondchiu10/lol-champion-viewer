@@ -11,7 +11,9 @@ const ChampionProvider = (props: IProps) => {
 	const [search, setSearch] = useState<string>("");
 
 	return (
-		<ChampionContext.Provider value={{ champion, setChampion, search, setSearch }}>
+		<ChampionContext.Provider
+			value={{ champion, setChampion, search, setSearch }}
+		>
 			{props.children}
 		</ChampionContext.Provider>
 	);

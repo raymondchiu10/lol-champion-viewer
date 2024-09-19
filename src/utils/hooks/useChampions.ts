@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { getChampions, getDetailedChampions } from "../../../api/getChampions";
 import { useVersion } from "./useVersion";
+import { getChampions, getDetailedChampions } from "../../api/getChampions";
+import { useMemo } from "react";
 
 export const useChampions = () => {
 	const { versionData } = useVersion();
@@ -11,10 +12,17 @@ export const useChampions = () => {
 		error: championsError,
 		isLoading: isChampionsLoading,
 	} = useQuery({
-		queryKey: ["champions"],
-		queryFn: () => getChampions(versionData),
+		queryKey: ["champions", versionData],
+		queryFn: () => {
+			if (!versionData) {
+				return Promise.resolve([]);
+			}
+			return getChampions(versionData);
+		},
+		enabled: !!versionData,
+		staleTime: 1000 * 60 * 10,
+		gcTime: 1000 * 60 * 30,
 	});
-
 
 	return {
 		championsData,
@@ -27,14 +35,24 @@ export const useChampions = () => {
 export const useChampion = (modifier: string = "") => {
 	const { versionData } = useVersion();
 
+	const queryKey = useMemo(() => ["champion", modifier] as const, [modifier]);
+
 	const {
 		data: championData,
 		isError: isChampionError,
 		error: championError,
 		isLoading: isChampionLoading,
 	} = useQuery({
-		queryKey: ["champion"],
-		queryFn: () => getDetailedChampions(versionData, modifier),
+		queryKey,
+		queryFn: () => {
+			if (!versionData) {
+				return Promise.resolve(null);
+			}
+			return getDetailedChampions(versionData, modifier);
+		},
+		enabled: !!versionData,
+		staleTime: 1000 * 60 * 5,
+		gcTime: 1000 * 60 * 15,
 	});
 
 	return {
