@@ -44,7 +44,6 @@ const ChampionDetailCard = (props: IProps) => {
 
 			<ChampionTipsComponent champion={championData.id} />
 
-
 			{/* {Object.entries(championData).map(([key, value]) => {
 				return (
 					<li key={key}>
