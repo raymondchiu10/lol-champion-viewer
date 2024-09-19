@@ -1,7 +1,7 @@
 import { getPassiveAsset } from "../../api/getChampionAsset";
 import { DetailedChampionData } from "../../api/types_champion-detailed";
 import ChampionSpellComponent from "./ChampionSpellComponent";
-import ChampionTips from "./ChampionTips";
+import ChampionTipsComponent from "./ChampionTipsComponent";
 
 interface IProps {
 	championData: DetailedChampionData;
@@ -42,35 +42,8 @@ const ChampionDetailCard = (props: IProps) => {
 
 			<ChampionSpellComponent spells={championData.spells} />
 
-			<details className="champion-detail-card_tips">
-				<summary>Champion Tips</summary>
+			<ChampionTipsComponent champion={championData.id} />
 
-				<div>
-					<ul className="champion-detail-card_tips_container">
-						{championData.allytips.map((item, index) => {
-							return (
-								<ChampionTips
-									key={`allytips-${championData.id}-${index}`}
-									type={"allytips"}
-									tip={item}
-								/>
-							);
-						})}
-					</ul>
-
-					<ul className="champion-detail-card_tips_container">
-						{championData.enemytips.map((item, index) => {
-							return (
-								<ChampionTips
-									key={`enemytips-${championData.id}-${index}`}
-									type={"enemytips"}
-									tip={item}
-								/>
-							);
-						})}
-					</ul>
-				</div>
-			</details>
 
 			{/* {Object.entries(championData).map(([key, value]) => {
 				return (

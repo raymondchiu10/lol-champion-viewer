@@ -28,6 +28,7 @@
 
 	&_tips {
 		display: flex;
+		flex-direction: column;
 		padding: 0 0 0.5rem 0;
 		cursor: pointer;
 
@@ -41,10 +42,12 @@
 
 			&_allytips {
 				color: rgb(195, 195, 255);
+				padding: 0.5rem 0;
 			}
 
 			&_enemytips {
 				color: rgb(255, 200, 200);
+				padding: 0.5rem 0;
 			}
 		}
 	}
