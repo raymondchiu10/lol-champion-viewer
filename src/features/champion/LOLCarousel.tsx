@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
 import { getChampionLoadingAsset } from "../../api/getChampionAsset";
 import { ChampionSkin } from "../../api/types_champion-detailed";
 
@@ -34,12 +34,16 @@ const LOLCarousel = (props: IProps) => {
 	return (
 		<div className="lol-carousel">
 			<Swiper
-				modules={[Navigation, Pagination, Scrollbar, A11y]}
+				modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
 				spaceBetween={50}
 				slidesPerView={1}
 				navigation
 				pagination={{ clickable: true }}
 				scrollbar={{ draggable: true }}
+				autoplay={{
+					delay: 3000,
+					pauseOnMouseEnter: true,
+				}}
 				loop
 			>
 				{props.data.map(createElement)}
