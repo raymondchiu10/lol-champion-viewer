@@ -22,4 +22,26 @@
 			}
 		}
 	}
+
+	.swiper-pagination-bullet {
+		width: 1.025rem;
+		height: 1.025rem;
+		background-color: white;
+		border: 1px solid gray;
+	}
+
+	.swiper-button-next,
+	.swiper-button-prev {
+		color: white;
+		animation: 1s;
+
+		&:hover {
+			font-weight: 900;
+			transform: scale(1.1);
+		}
+
+		&:active {
+			transform: scale(0.9);
+		}
+	}
 }

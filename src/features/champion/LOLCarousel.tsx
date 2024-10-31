@@ -1,5 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
+import {
+	Navigation,
+	Pagination,
+	Scrollbar,
+	A11y,
+	Autoplay,
+} from "swiper/modules";
 import { getChampionLoadingAsset } from "../../api/getChampionAsset";
 import { ChampionSkin } from "../../api/types_champion-detailed";
 
