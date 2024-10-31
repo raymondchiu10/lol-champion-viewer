@@ -12,9 +12,9 @@ Currently using plugin:
 
 -   For routing, the project uses [react-router-dom](https://reactrouter.com/en/main)
 
--	For state management, this project uses a combination of [react query](https://tanstack.com/query/latest) and [context API](https://react.dev/learn/passing-data-deeply-with-context)
+-   For state management, this project uses a combination of [react query](https://tanstack.com/query/latest) and [context API](https://react.dev/learn/passing-data-deeply-with-context)
 
--	For the carousel component, [swiper](https://swiperjs.com/) was used.
+-   For the carousel component, [swiper](https://swiperjs.com/) was used.
 
 ## Running the project
 

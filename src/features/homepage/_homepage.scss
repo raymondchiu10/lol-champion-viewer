@@ -14,6 +14,7 @@
 		& > div {
 			flex: auto;
 			width: 100%;
+			background-color: #111111;
 
 			@include media-breakpoint-up(md) {
 				flex: 20%;
