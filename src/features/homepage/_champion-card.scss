@@ -5,6 +5,7 @@
 	transition: all 200ms;
 	border: 1px solid white;
 	border-radius: 0.25rem;
+	background-color: #111111;
 
 	-webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
@@ -15,10 +16,12 @@
 			-webkit-box-shadow: 0px 0px 15px 0px rgba(0, 94, 255, 1);
 			-moz-box-shadow: 0px 0px 15px 0px rgba(0, 94, 255, 1);
 			box-shadow: 0px 0px 15px 0px rgba(0, 94, 255, 1);
+			transform: scale(1.01);
 		}
 
 		&:active {
 			border: 1px solid rgba(0, 94, 255, 1);
+			transform: scale(0.99);
 		}
 	}
 
