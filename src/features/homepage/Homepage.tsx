@@ -1,7 +1,8 @@
 import ChampionCard from "./ChampionCard";
-import { useContext } from "react";
+import { Suspense, useContext } from "react";
 import { ChampionContext } from "../../utils/context/ChampionContext";
 import { useChampions } from "../../utils/hooks/useChampions";
+import Loading from "../../utils/Loading";
 
 const Homepage = () => {
 	const context = useContext(ChampionContext);
@@ -22,7 +23,7 @@ const Homepage = () => {
 	} = useChampions();
 
 	if (isChampionsLoading) {
-		return <h1>is Loading...</h1>;
+		return <Loading/>;
 	}
 
 	if (isChampionsError) {
@@ -39,19 +40,23 @@ const Homepage = () => {
 					)
 				: championsData;
 
+		console.log("filteredChampions", filteredChampions);
+
 		return (
 			<section className="homepage">
 				<div className="homepage_champ-list">
-					{champion ? (
-						<ChampionCard champion={champion} />
-					) : (
-						filteredChampions.map((champ) => (
-							<ChampionCard
-								key={champ.label}
-								champion={champ.value}
-							/>
-						))
-					)}
+					<Suspense fallback={<Loading/>}>
+						{champion ? (
+							<ChampionCard champion={champion} />
+						) : (
+							filteredChampions.map((champ) => (
+								<ChampionCard
+									key={champ.label}
+									champion={champ.value}
+								/>
+							))
+						)}
+					</Suspense>
 				</div>
 			</section>
 		);

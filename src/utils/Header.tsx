@@ -3,6 +3,7 @@ import { ChampionContext } from "./context/ChampionContext";
 import LOLSearchInput from "./LOLSearchInput";
 import { Link, useLocation } from "react-router-dom";
 import { useChampions } from "./hooks/useChampions";
+import Loading from "./Loading";
 
 const Header = () => {
 	const {
@@ -29,7 +30,7 @@ const Header = () => {
 	};
 
 	if (isChampionsLoading) {
-		return <h1>is Loading...</h1>;
+		return <Loading/>;
 	}
 
 	if (isChampionsError) {

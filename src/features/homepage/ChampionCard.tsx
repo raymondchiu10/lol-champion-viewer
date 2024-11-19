@@ -6,6 +6,7 @@ import { DetailedChampionData } from "../../api/types_champion-detailed";
 import ProfileIcon from "../../utils/ProfileIcon";
 import ChampionTag from "./ChampionTag";
 import { useNavigate } from "react-router-dom";
+import { useVersion } from "../../utils/hooks/useVersion";
 
 interface IProps {
 	champion: Champion | DetailedChampionData;
@@ -14,6 +15,7 @@ interface IProps {
 
 const ChampionCard = ({ champion, disabled = false }: IProps) => {
 	const navigate = useNavigate();
+	const {versionData} = useVersion();
 
 	const linkHelper = () => {
 		navigate(`/champion/${champion.id}`);
@@ -28,7 +30,7 @@ const ChampionCard = ({ champion, disabled = false }: IProps) => {
 		>
 			<header className="champion-card_header">
 				<ProfileIcon
-					src={getChampionAsset(champion.image.full)}
+					src={getChampionAsset(champion.image.full, versionData || undefined)}
 					alt={champion.name}
 				/>
 
