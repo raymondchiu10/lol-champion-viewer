@@ -4,6 +4,7 @@ import { Champion } from "../../api/types_champion";
 import { useChampion } from "../../utils/hooks/useChampions";
 import LOLCarousel from "./LOLCarousel";
 import ChampionDetailCard from "../../utils/championDetailCard/ChampionDetailCard";
+import Loading from "../../utils/Loading";
 
 const ChampionPage = () => {
 	const location = useLocation();
@@ -11,7 +12,7 @@ const ChampionPage = () => {
 		useChampion(location.pathname.replace("/champion/", ""));
 
 	if (isChampionLoading) {
-		return <h1>is Loading...</h1>;
+		return <Loading/>;
 	}
 
 	if (isChampionError) {

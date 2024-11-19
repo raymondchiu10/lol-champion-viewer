@@ -1,5 +1,6 @@
 import { getPassiveAsset } from "../../api/getChampionAsset";
 import { DetailedChampionData } from "../../api/types_champion-detailed";
+import { useVersion } from "../hooks/useVersion";
 import ChampionSpellComponent from "./ChampionSpellComponent";
 import ChampionTipsComponent from "./ChampionTipsComponent";
 
@@ -9,6 +10,7 @@ interface IProps {
 
 const ChampionDetailCard = (props: IProps) => {
 	const { championData } = props;
+	const { versionData } = useVersion();
 
 	return (
 		<section className="champion-detail-card">
@@ -23,7 +25,7 @@ const ChampionDetailCard = (props: IProps) => {
 
 				<div className="champion-detail-card_passive_img">
 					<img
-						src={getPassiveAsset(championData.passive.image.full)}
+						src={getPassiveAsset(championData.passive.image.full, versionData || undefined)}
 						alt={championData.passive.name}
 					/>
 				</div>
