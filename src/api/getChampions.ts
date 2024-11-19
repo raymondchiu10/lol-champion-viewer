@@ -6,7 +6,7 @@ import {
 	DetailedChampionResponse,
 } from "./types_champion-detailed";
 
-export const getChampions = async (version: string = "14.18.1") => {
+export const getChampions = async (version: string = "14.22.1") => {
 	axiosInstance.defaults.baseURL = `https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/`;
 
 	const { data } =
@@ -23,7 +23,7 @@ export const getChampions = async (version: string = "14.18.1") => {
 };
 
 export const getDetailedChampions = async (
-	version: string = "14.18.1",
+	version: string = "14.22.1",
 	champion: string,
 ) => {
 	axiosInstance.defaults.baseURL = `https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion`;
