@@ -40,8 +40,6 @@ const Homepage = () => {
 					)
 				: championsData;
 
-		console.log("filteredChampions", filteredChampions);
-
 		return (
 			<section className="homepage">
 				<div className="homepage__champ-list">
