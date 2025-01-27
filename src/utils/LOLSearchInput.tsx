@@ -23,7 +23,7 @@ const LOLSearchInput = (props: IProps) => {
 				</label>
 			)}
 
-			<div className="lol-search-input_container">
+			<div className="lol-search-input__container">
 				<input
 					onFocus={props.onFocus}
 					name={props.name || "champion search"}

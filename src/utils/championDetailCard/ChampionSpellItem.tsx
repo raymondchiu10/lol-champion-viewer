@@ -14,8 +14,9 @@ const ChampionSpellItem = (props: IProps) => {
 			<h3>
 				<label>{spell.name}</label>
 			</h3>
-			<div className="champion-spell-item_image">
+			<div className="champion-spell-item__image-container">
 				<img
+					className="champion-spell-item__img"
 					src={getSpellAsset(spell.image.full, versionData)}
 					alt={spell.id}
 				/>

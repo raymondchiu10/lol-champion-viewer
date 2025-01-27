@@ -7,48 +7,22 @@
 	background-color: #111111;
 	padding: 1rem;
 
-	&_passive {
+	&__passive {
 		display: flex;
 		gap: 1rem;
 		flex-direction: column;
-
-		&_img {
-			border-radius: 0.5rem;
-			overflow: hidden;
-			width: 72px;
-			height: 72px;
-			aspect-ratio: 1;
-
-			& > img {
-				width: 100%;
-				height: 100%;
-				object-fit: contain;
-			}
-		}
 	}
+	&__img {
+		border-radius: 0.5rem;
+		overflow: hidden;
+		width: 72px;
+		height: 72px;
+		aspect-ratio: 1;
 
-	&_tips {
-		display: flex;
-		flex-direction: column;
-		padding: 0 0 0.5rem 0;
-
-		& > div {
-			display: flex;
-		}
-
-		&_container {
-			padding: 1rem;
-			flex: 1;
-
-			&_allytips {
-				color: rgb(195, 195, 255);
-				padding: 0.5rem 0;
-			}
-
-			&_enemytips {
-				color: rgb(255, 200, 200);
-				padding: 0.5rem 0;
-			}
+		& > img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
 		}
 	}
 }

@@ -5,9 +5,7 @@ interface IProps {
 
 const ChampionTips = (props: IProps) => {
 	const { type, tip } = props;
-	return (
-		<li className={`champion-detail-card_tips_container_${type}`}>{tip}</li>
-	);
+	return <li className={`champion-tips__container_${type}`}>{tip}</li>;
 };
 
 export default ChampionTips;

@@ -23,9 +23,10 @@ const ChampionSpellComponent = (props: IProps) => {
 			<h2>
 				<label>Skills:</label>
 			</h2>
-			<div className="champion-spell-component_spells">
+			<div className="champion-spell-component__spells">
 				{props.spells.map((item) => (
 					<img
+						className="champion-spell-component__img"
 						key={item.id}
 						src={getSpellAsset(item.image.full, versionData)}
 						alt={item.name}
