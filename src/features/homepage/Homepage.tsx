@@ -23,7 +23,7 @@ const Homepage = () => {
 	} = useChampions();
 
 	if (isChampionsLoading) {
-		return <Loading/>;
+		return <Loading />;
 	}
 
 	if (isChampionsError) {
@@ -44,8 +44,8 @@ const Homepage = () => {
 
 		return (
 			<section className="homepage">
-				<div className="homepage_champ-list">
-					<Suspense fallback={<Loading/>}>
+				<div className="homepage__champ-list">
+					<Suspense fallback={<Loading />}>
 						{champion ? (
 							<ChampionCard champion={champion} />
 						) : (

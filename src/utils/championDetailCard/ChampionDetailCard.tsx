@@ -14,7 +14,7 @@ const ChampionDetailCard = (props: IProps) => {
 
 	return (
 		<section className="champion-detail-card">
-			<div className="champion-detail-card_passive">
+			<div className="champion-detail-card__passive">
 				<h2>
 					<label>Passive:</label>
 				</h2>
@@ -23,9 +23,12 @@ const ChampionDetailCard = (props: IProps) => {
 					<label>{championData.passive.name}</label>
 				</h3>
 
-				<div className="champion-detail-card_passive_img">
+				<div className="champion-detail-card__img">
 					<img
-						src={getPassiveAsset(championData.passive.image.full, versionData || undefined)}
+						src={getPassiveAsset(
+							championData.passive.image.full,
+							versionData || undefined,
+						)}
 						alt={championData.passive.name}
 					/>
 				</div>

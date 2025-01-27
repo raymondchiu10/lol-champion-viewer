@@ -30,7 +30,7 @@ const Header = () => {
 	};
 
 	if (isChampionsLoading) {
-		return <Loading/>;
+		return <Loading />;
 	}
 
 	if (isChampionsError) {
@@ -40,13 +40,13 @@ const Header = () => {
 	if (championsData) {
 		return (
 			<header className="header">
-				<div className="header_container">
+				<div className="header__container">
 					<h1>
 						<Link to="/">LOL Champion Viewer</Link>
 					</h1>
 
 					{pathname === "/" && (
-						<div className="header_container_dropdown">
+						<div>
 							<LOLSearchInput
 								onFocus={searchOnFocus}
 								value={search}

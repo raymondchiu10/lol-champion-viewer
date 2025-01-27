@@ -14,11 +14,11 @@ const ChampionTipsComponent = (props: IProps) => {
 	}
 
 	return (
-		<div className="champion-detail-card_tips">
+		<div className="champion-tips">
 			<h3>Champion Tips</h3>
 
 			<div>
-				<ul className="champion-detail-card_tips_container">
+				<ul className="champion-tips__container">
 					{championData.allytips.map((item, index) => {
 						return (
 							<ChampionTips
@@ -30,7 +30,7 @@ const ChampionTipsComponent = (props: IProps) => {
 					})}
 				</ul>
 
-				<ul className="champion-detail-card_tips_container">
+				<ul className="champion-tips__container">
 					{championData.enemytips.map((item, index) => {
 						return (
 							<ChampionTips

@@ -8,23 +8,23 @@
 		padding: 0.125rem 0.5rem;
 	}
 
-	&_assassin {
+	&--assassin {
 		background: purple;
 	}
-	&_fighter {
+	&--fighter {
 		background: brown;
 	}
-	&_mage {
+	&--mage {
 		background: blue;
 	}
-	&_marksman {
+	&--marksman {
 		background: red;
 		color: black;
 	}
-	&_support {
+	&--support {
 		background: green;
 	}
-	&_tank {
+	&--tank {
 		background: orange;
 		color: black;
 	}

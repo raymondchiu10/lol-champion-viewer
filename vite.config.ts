@@ -12,6 +12,13 @@ export default defineConfig({
 			"@": "/src",
 		},
 	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				silenceDeprecations: ["legacy-js-api"],
+			},
+		},
+	},
 	server: {
 		host: true,
 		strictPort: true,
