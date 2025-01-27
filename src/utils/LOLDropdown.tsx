@@ -67,7 +67,7 @@ const LOLDropdown = (props: IProps) => {
 				{props.label || `Choose a Champion:`}
 			</label>
 
-			<div className="lol-dropdown_wrapper">
+			<div className="lol-dropdown__wrapper">
 				<select
 					onFocus={props.onFocus}
 					onBlur={props.onBlur}

@@ -12,7 +12,7 @@ const ChampionPage = () => {
 		useChampion(location.pathname.replace("/champion/", ""));
 
 	if (isChampionLoading) {
-		return <Loading/>;
+		return <Loading />;
 	}
 
 	if (isChampionError) {

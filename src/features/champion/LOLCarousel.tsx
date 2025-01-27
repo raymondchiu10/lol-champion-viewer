@@ -27,8 +27,8 @@ const LOLCarousel = (props: IProps) => {
 
 		return (
 			<SwiperSlide key={index}>
-				<div className="swiper-slide_element">
-					<h2>{item.name}</h2>
+				<div className="swiper-slide__element">
+					<h2 className="swiper-slide__header">{item.name}</h2>
 					<picture>
 						<img src={championSplash} alt={item.name} />
 					</picture>

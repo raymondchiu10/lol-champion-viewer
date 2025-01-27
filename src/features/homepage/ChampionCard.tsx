@@ -15,7 +15,7 @@ interface IProps {
 
 const ChampionCard = ({ champion, disabled = false }: IProps) => {
 	const navigate = useNavigate();
-	const {versionData} = useVersion();
+	const { versionData } = useVersion();
 
 	const linkHelper = () => {
 		navigate(`/champion/${champion.id}`);
@@ -25,16 +25,19 @@ const ChampionCard = ({ champion, disabled = false }: IProps) => {
 		<div
 			onClick={disabled ? undefined : linkHelper}
 			className={clsx("champion-card", {
-				"champion-card_active": !disabled,
+				"champion-card--active": !disabled,
 			})}
 		>
-			<header className="champion-card_header">
+			<header className="champion-card__header">
 				<ProfileIcon
-					src={getChampionAsset(champion.image.full, versionData || undefined)}
+					src={getChampionAsset(
+						champion.image.full,
+						versionData || undefined,
+					)}
 					alt={champion.name}
 				/>
 
-				<div className="champion-card_subheader">
+				<div className="champion-card__subheader">
 					<hgroup>
 						<h2>{champion.name}</h2>
 						<h3>{champion.title}</h3>

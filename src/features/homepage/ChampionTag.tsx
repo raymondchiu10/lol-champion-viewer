@@ -13,7 +13,7 @@ const ChampionTag = (props: IProps) => {
 
 				return (
 					<label
-						className={`border champion-tag_${color}`}
+						className={`border champion-tag--${color}`}
 						key={item}
 					>
 						{item}
