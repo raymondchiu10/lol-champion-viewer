@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 import { ChampionContext } from "../context/ChampionContext";
-import { Champion } from "../../api/types_champion";
+import { Champion, EChampionTag } from "../../api/types_champion";
 
 interface IProps {
 	children: ReactNode;
@@ -9,10 +9,11 @@ interface IProps {
 const ChampionProvider = (props: IProps) => {
 	const [champion, setChampion] = useState<Champion | undefined>(undefined);
 	const [search, setSearch] = useState<string>("");
+	const [tag, setTag] = useState<EChampionTag | null>(null);
 
 	return (
 		<ChampionContext.Provider
-			value={{ champion, setChampion, search, setSearch }}
+			value={{ champion, setChampion, search, setSearch, tag, setTag }}
 		>
 			{props.children}
 		</ChampionContext.Provider>
