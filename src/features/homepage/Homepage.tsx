@@ -13,7 +13,7 @@ const Homepage = () => {
 		);
 	}
 
-	const { champion, search } = context;
+	const { champion, search, tag } = context;
 
 	const {
 		championsData,
@@ -47,7 +47,12 @@ const Homepage = () => {
 						{champion ? (
 							<ChampionCard champion={champion} />
 						) : (
-							filteredChampions.map((champ) => (
+							(tag
+								? filteredChampions.filter((champion) =>
+										champion.value.tags.includes(tag),
+									)
+								: filteredChampions
+							).map((champ) => (
 								<ChampionCard
 									key={champ.label}
 									champion={champ.value}

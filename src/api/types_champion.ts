@@ -46,6 +46,15 @@ export type TChampionTag =
 	| "Support"
 	| "Tank";
 
+export enum EChampionTag {
+	ASSASSIN = "Assassin",
+	FIGHTER = "Fighter",
+	MAGE = "Mage",
+	MARKSMAN = "Marksman",
+	SUPPORT = "Support",
+	TANK = "Tank",
+}
+
 export interface Champion {
 	version: string;
 	id: string;
