@@ -4,6 +4,8 @@ import LOLSearchInput from "./LOLSearchInput";
 import { Link, useLocation } from "react-router-dom";
 import { useChampions } from "./hooks/useChampions";
 import Loading from "./Loading";
+import { EChampionTag } from "../api/types_champion";
+import clsx from "clsx";
 
 const Header = () => {
 	const {
@@ -23,7 +25,7 @@ const Header = () => {
 		);
 	}
 
-	const { search, setSearch } = context;
+	const { search, setSearch, tag, setTag } = context;
 
 	const searchOnFocus = () => {
 		setSearch("");
@@ -46,7 +48,36 @@ const Header = () => {
 					</h1>
 
 					{pathname === "/" && (
-						<div>
+						<div className="header__filter">
+							<div className="header__filter-tags">
+								{Object.values(EChampionTag).map(
+									(item, index) => {
+										const color = item.toLowerCase();
+										return (
+											<span
+												key={index}
+												className={clsx(
+													`header__filter-tag-item champion-tag--${color}`,
+													{
+														"header__filter-tag-item--active":
+															item === tag,
+													},
+												)}
+												onClick={() => {
+													if (item === tag) {
+														setTag(null);
+													} else {
+														setTag(item);
+													}
+												}}
+											>
+												{item}
+											</span>
+										);
+									},
+								)}
+							</div>
+
 							<LOLSearchInput
 								onFocus={searchOnFocus}
 								value={search}
